@@ -26,6 +26,7 @@
 
 cmake_minimum_required(VERSION 3.23 FATAL_ERROR)
 
+
 project(test
     VERSION         0.0.1
     DESCRIPTION     "Eglinux's cmake study test repo"
@@ -47,25 +48,23 @@ endif()
 
 if(PROJECT_SOURCE_DIR STREQUAL PROJECT_BINARY_DIR)
     message(FATAL_ERROR
-    "\n"
-    "In-source builds are not allowed.\n"
-    "Instead, provide a path to build tree like so:\n"
-    "cmake -S . -B <destination>\n"
-    "\n"
-    "To remove files you accidentally created execute:\n"
-    "please delete CMakeFiles and CMakeCache.txt\n"
+      "\n"
+      "In-source builds are not allowed.\n"
+      "Instead, provide a path to build tree like so:\n"
+      "cmake -S . -B <destination>\n"
+      "\n"
+      "To remove files you accidentally created execute:\n"
+      "please delete CMakeFiles and CMakeCache.txt\n"
     )
 endif()
 
-set(CMAKE_CXX_STANDARD              17 )
+set(CMAKE_CXX_STANDARD              20 )
 set(CMAKE_CXX_STANDARD_REQUIRED     ON )
 set(CMAKE_CXX_EXTENSIONS            OFF)
-set(CMAKE_CXX_VISIBILITY_PRESET     hidden)
-set(CMAKE_VISIBILITY_INLINES_HIDDEN YES)
+# set(CMAKE_CXX_VISIBILITY_PRESET     hidden)
+# set(CMAKE_VISIBILITY_INLINES_HIDDEN YES)
 set(CMAKE_INSTALL_RPATH             $ORIGIN $ORIGIN/../lib)
 set(CMAKE_INSTALL_PREFIX            "/usr/local")
-#
-cmake_policy(SET CMP0063 NEW)
 
 if(NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
     include(CheckIPOSupported)
